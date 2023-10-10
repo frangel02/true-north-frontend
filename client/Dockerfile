@@ -16,7 +16,7 @@ FROM node:12-alpine
 # Copy the package.json and package-lock.json to the container
 #COPY package*.json ./
 # Install dependencies
-#RUN npm install
+RUN npm install
 # Copy the rest of the application code to the container
 
 # Build the React app
