@@ -20,7 +20,7 @@ RUN npm install
 # Copy the rest of the application code to the container
 
 # Build the React app
-RUN react-scripts build
+#RUN react-scripts build
 
 
 COPY . .
