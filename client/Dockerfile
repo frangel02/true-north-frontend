@@ -10,27 +10,33 @@
 #COPY build/classes/static /usr/share/nginx/html
 
 # Use an official Node runtime as a parent image
-FROM node:12-alpine as build
+FROM node:12-alpine
 # Set the working directory to /app
 ##WORKDIR /app
 # Copy the package.json and package-lock.json to the container
-COPY package*.json ./
+#COPY package*.json ./
 # Install dependencies
-RUN npm install
+#RUN npm install
 # Copy the rest of the application code to the container
-COPY . .
+
 # Build the React app
 RUN react-scripts build
+
+WORKDIR /.
+
+COPY . .
+
+RUN npm install
 # Use an official Nginx runtime as a parent image
-FROM nginx:1.21.0-alpine
+#FROM nginx:1.21.0-alpine
 # Copy the ngnix.conf to the container
-COPY ngnix.conf /etc/nginx/conf.d/default.conf
+#COPY ngnix.conf /etc/nginx/conf.d/default.conf
 
 # Copy the React app build files to the container
-COPY /build /usr/share/nginx/html
+#COPY - from=build /build /usr/share/nginx/html
 
 
 # Expose port 80 for Nginx
 EXPOSE 80
 # Start Nginx when the container starts
-CMD ["nginx", "-g", "daemon off;"]
+#CMD ["nginx", "-g", "daemon off;"]
