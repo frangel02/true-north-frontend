@@ -22,7 +22,6 @@ FROM node:12-alpine
 # Build the React app
 RUN react-scripts build
 
-WORKDIR /.
 
 COPY . .
 
