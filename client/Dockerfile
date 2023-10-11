@@ -24,12 +24,12 @@ RUN npm build
 
 WORKDIR ./
 
-COPY . .
+
 #COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN npm install
 
-
+COPY . .
 
 FROM nginx:1.17.1-alpine
 COPY --from=build /build/ /usr/share/nginx/html
