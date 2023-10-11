@@ -22,7 +22,7 @@ RUN npm install
 # Build the React app
 RUN npm build
 
-WORKDIR /.
+WORKDIR ./
 
 COPY . .
 
@@ -33,7 +33,7 @@ RUN npm install
 FROM nginx:1.17.1-alpine
 COPY --from=build-stage /build .
 
-COPY /build /usr/share/nginx/html
+COPY ./build /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx/nginx.conf
 RUN 
