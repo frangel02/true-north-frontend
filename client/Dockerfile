@@ -33,9 +33,9 @@ RUN npm install
 FROM nginx:1.17.1-alpine
 COPY --from=build-stage /build .
 
-COPY /build /usr/share/nginx/html
+#COPY /build /usr/share/nginx/html
 
-COPY nginx.conf /etc/nginx/nginx.conf
+#COPY nginx.conf /etc/nginx/nginx.conf
 RUN 
 EXPOSE 80
 
