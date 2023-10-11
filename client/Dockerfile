@@ -25,6 +25,7 @@ RUN npm build
 WORKDIR ./
 
 COPY . .
+#COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN npm install
 
@@ -35,7 +36,7 @@ COPY --from=build-stage /build .
 
 COPY ./build /usr/share/nginx/html
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY ./build/nginx.conf /etc/nginx/nginx.conf
 RUN 
 EXPOSE 80
 
