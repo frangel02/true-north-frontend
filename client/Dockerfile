@@ -42,8 +42,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 RUN 
 EXPOSE 80
 
-
-
+CMD ["nginx", "-g", "daemon off;"]
 
 
 # Use an official Nginx runtime as a parent image
