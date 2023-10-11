@@ -10,7 +10,7 @@
 #COPY build/classes/static /usr/share/nginx/html
 
 # Use an official Node runtime as a parent image
-FROM node:12-alpine as build-stage
+FROM node:12-alpine as build
 # Set the working directory to /app
 ##WORKDIR /app
 # Copy the package.json and package-lock.json to the container
@@ -32,12 +32,12 @@ RUN npm install
 
 
 FROM nginx:1.17.1-alpine
-COPY --from=build-stage /build /usr/share/nginx/html
+COPY - from=build /build/ /usr/share/nginx/html
 
 
 #COPY ./build /usr/share/nginx/html
 
-WORKDIR ./
+#WORKDIR ./
 
 COPY nginx.conf /etc/nginx/nginx.conf
 RUN 
