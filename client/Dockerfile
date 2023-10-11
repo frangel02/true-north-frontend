@@ -38,7 +38,7 @@ COPY ./build /usr/share/nginx/html
 
 WORKDIR ./
 
-COPY ./build/nginx.conf /usr/share/nginx
+COPY nginx.conf /etc/nginx/nginx.conf
 RUN 
 EXPOSE 80
 
