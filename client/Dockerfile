@@ -36,7 +36,9 @@ COPY --from=build-stage /build .
 
 COPY ./build /usr/share/nginx/html
 
-COPY ./build/nginx.conf /usr/share/
+WORKDIR ./
+
+COPY ./nginx.conf /usr/share/nginx
 RUN 
 EXPOSE 80
 
